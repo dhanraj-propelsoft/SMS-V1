@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo $dateofpurchase . "<br>";
     // echo $use . "<br>";
 
-        // $block = $_REQUEST['block'];
-        // $unitnumber = $_REQUEST['unitnumber'];
+    $block = $_REQUEST['block'];
+    $unitnumber = $_REQUEST['unitnumber'];
     $firstname = $_REQUEST['firstname1'];
     $lastname = $_REQUEST['lastname1'];
     $email = $_REQUEST['email1'];
@@ -36,12 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nationality = $_REQUEST['nationality1'];
     $dateofpurchase = $_REQUEST['dateofpurchase1'];
     $use = $_REQUEST['purpose1'];
+       
 
 
 
 
-    // echo $block . "<br>";
-    // echo $unitnumber . "<br>";
+    echo $block . "<br>";
+    echo   $unitnumber . "<br>";
     echo $firstname . "<br>";
     echo $lastname . "<br>";
     echo $email . "<br>";
