@@ -23,7 +23,7 @@ $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details");
 
                         <h4 class="fw-bold py-3 mb-0"><span class="text-muted fw-light"> </span>UNIT LIST
                         </h4>
-                        <div class="mb-4 col-md-2">
+                        <!-- <div class="mb-4 col-md-2">
                             <label for="SHOW" class="form-label">SHOW</label>
                             <select id="SHOW" class="select2 form-select" name="unitvalue">
                                 <option value="">SELECT</option>
@@ -34,7 +34,7 @@ $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details");
                                 <option value="">5</option>
                             </select>
 
-                        </div>
+                        </div> -->
                         <div class="card">
                             <div class="table-responsive text-nowrap" style="overflow-y: scroll;">
                                 <table id="table" class="table unittable" style="table-layout:fixed">

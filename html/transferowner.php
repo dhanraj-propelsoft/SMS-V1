@@ -3,9 +3,11 @@
 
 <?php
 
-$units = "SELECT * FROM addowner_details";
+$units = "SELECT * FROM addowner_details WHERE current_status=1";
 $units_qry = mysqli_query($db, $units);
 ?>
+
+
 
 <body>
     <!-- Layout wrapper -->
@@ -31,7 +33,7 @@ $units_qry = mysqli_query($db, $units);
                         </h4>
                         <form action="transferownerDetails.php" method="POST">
                             <div class="row">
-                                <div class="mb-4 col-md-2">
+                                <div class="mb-4 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">BLOCK</label>
                                     <select name="block" id="SHOW" class="select2 form-select">
@@ -59,9 +61,9 @@ $units_qry = mysqli_query($db, $units);
 
                                             ?>
 
-                                            <option value="<?php echo $row['id'];
+                                            <option unitId="<?php echo $row['id'] ?>" value="<?php echo $row['units'];
 
-                                            ?>">
+                                              ?>">
                                                 <?php echo $row["units"];
 
                                                 ?>
@@ -74,8 +76,20 @@ $units_qry = mysqli_query($db, $units);
                                     </select>
 
                                 </div>
+                                <div class="mb-1 col-md-2" style="display:none">
 
+                                    <label for="SHOW" class="form-label">ID</label>
+                                    <input class="form-control" id="id" name="id" autocomplete="off" required
+                                        readonly />
 
+                                </div>
+                                <div class="mb-1 col-md-2" style="display:none">
+
+                                    <label for="SHOW" class="form-label">TYPE</label>
+                                    <input class="form-control" id="type" name="type" autocomplete="off" required
+                                        readonly />
+
+                                </div>
                                 <div class="row">
                                     <div class="col-xxl">
                                         <div class="card mb-4">
@@ -89,20 +103,20 @@ $units_qry = mysqli_query($db, $units);
                                                         <label class="form-label">First
                                                             Name</label>
                                                         <input name="firstname" type="text" class="form-control"
-                                                            id="firstname" placeholder="Name" />
+                                                            id="firstname" placeholder="Name" readonly />
                                                     </div>
                                                     <div class="col-md-6 mb-4 ">
                                                         <label class="form-label">Last
                                                             Name</label>
                                                         <input name="lastname" type="text" class="form-control"
-                                                            id="lastname" placeholder="Name" />
+                                                            id="lastname" placeholder="Name" readonly/>
                                                     </div>
 
 
                                                     <div class="col-md-6 mb-4 ">
                                                         <label class="form-label">E-mail</label>
                                                         <input name="email" type="text" class="form-control" id="email"
-                                                            placeholder="ABC@gmail.com" />
+                                                            placeholder="ABC@gmail.com" readonly/>
                                                     </div>
 
 
@@ -110,29 +124,30 @@ $units_qry = mysqli_query($db, $units);
                                                         <label class="form-label">Contact
                                                             Number</label>
                                                         <input name="contact" type="text" class="form-control"
-                                                            id="contact" placeholder="1234567890" />
+                                                            id="contact" placeholder="1234567890" readonly/>
                                                     </div>
+
                                                     <div class="col-md-6 mb-4 ">
                                                         <label class="form-label">Date of
                                                             Birth</label>
                                                         <input name="dateofbirth" type="text" class="form-control"
-                                                            id="dateofbirth" placeholder="dd/mm/yyyy" />
+                                                            id="dateofbirth" placeholder="dd/mm/yyyy"readonly />
                                                     </div>
                                                     <div class="col-md-6 mb-4 ">
                                                         <label class="form-label">Nationality</label>
                                                         <input name="nationality" type="text" class="form-control"
-                                                            id="nationality" placeholder="" />
+                                                            id="nationality" placeholder="" readonly/>
                                                     </div>
                                                     <div class="col-md-6 mb-4 ">
                                                         <label class="form-label">Date of
                                                             Purchase</label>
                                                         <input name="dateofpurchase" type="text" class="form-control"
-                                                            id="dateofpurchase" placeholder="dd/mm/yyyy" />
+                                                            id="dateofpurchase" placeholder="dd/mm/yyyy" readonly/>
                                                     </div>
                                                     <div class="col-md-6 mb-4">
                                                         <label for="SHOW" class="form-label">PURPOSE</label>
                                                         <input name="purpose" type="text" class="form-control"
-                                                            id="purpose" placeholder="" />
+                                                            id="purpose" placeholder=""readonly />
 
                                                     </div>
                                                 </div>
@@ -237,8 +252,7 @@ $units_qry = mysqli_query($db, $units);
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>
             $('#unitnumber').on('change', function () {
-                var unitnumber_id = this.value;
-
+                var unitnumber_id = $('#unitnumber  :selected').attr('unitId');
                 $.ajax({
                     url: 'res.php',
                     type: "POST",
@@ -248,6 +262,10 @@ $units_qry = mysqli_query($db, $units);
                     success: function (result) {
 
                         const resultArray = JSON.parse(result);
+                        const id = resultArray[0].id;
+                        const block = resultArray[0].block;
+                        const units = resultArray[0].units;
+                        const types = resultArray[0].type;
                         const firstName = resultArray[0].first_name;
                         const lastname = resultArray[0].last_name;
                         const use = resultArray[0].use;
@@ -258,6 +276,8 @@ $units_qry = mysqli_query($db, $units);
                         const phone = resultArray[0].contact;
 
 
+                        $('#id').val(id);
+                        $('#type').val(types);
                         $('#purpose').val(use);
                         $('#firstname').val(firstName);
                         $('#lastname').val(lastname);
@@ -266,6 +286,8 @@ $units_qry = mysqli_query($db, $units);
                         $('#nationality').val(country);
                         $('#dateofpurchase').val(purchase);
                         $('#contact').val(phone);
+                        $('#block').val(block);
+                        $('#unitnumber').val(units);
 
 
 

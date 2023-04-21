@@ -1,8 +1,9 @@
 <?php include('header.php'); ?>
 <?php include 'config.php'; ?>
-<?php $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details");
-?>
 
+<?php $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details"); ?>
+
+  
 <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -30,39 +31,32 @@
 
                             <div class="row">
                                 <!-- <form action="apartmentStore.php" method="POST"> -->
+
                                 <div class="mb-1 col-md-2">
                                     <label for="SHOW" class="form-label">UNIT NUMBER -</label>
                                     <input type="hidden" name="unit" value="<?php echo $_GET['unit']; ?>">
-
-
-
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
                                         ?>
                                         <?php
                                         echo $_GET['unit'];
-
-
                                         ?>
                                         <?php
                                     } ?>
                                 </div>
 
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-1 col-md-2" style="display:none">
                                     <label for="SHOW" class="form-label">UNIT TYPE - </label>
                                     <input type="hidden" name="type" value="<?php echo $_GET['type']; ?>">
-
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
                                         ?>
                                         <?php
                                         echo $_GET['type'];
-
-
                                         ?>
                                         <?php
                                     } ?>
-
                                 </div>
-                                <div class="mb-1 col-md-2">
+
+                                <div class="mb-1 col-md-2" style="display:none">
                                     <input type="hidden" name="block" value="<?php echo $row['blocks']; ?>">
                                     <label for="SHOW" class="form-label">BLOCK -</label>
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
@@ -192,7 +186,25 @@
             </div>
         </div>
     </div>
+
+   
 </body>
 <!-- / Content -->
 <!-- Footer -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+<script>
+  $(function() {
+    $("#dateofbirth").datepicker({
+      dateFormat: "dd/mm/yy",
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:+0"
+    });
+  });
+</script>
+
+
 <?php include('footer.php'); ?>

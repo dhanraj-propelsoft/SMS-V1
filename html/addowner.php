@@ -22,7 +22,7 @@
                     <div class="container-xxl flex-grow-1 ">
                         <h4 class="fw-bold py-3 mb-0"><span class="text-muted fw-light"> </span>ADD OWNER
                         </h4>
-                        <div class="mb-4 col-md-2 ">
+                        <!-- <div class="mb-4 col-md-2 ">
                             <label for="SHOW" class="form-label">SELECT THE FLOOR</label>
                             <select name="floor_no" id="SHOW" class="select2 form-select">
                                 <option value="">SELECT</option>
@@ -33,11 +33,11 @@
                                 <option value="5">5</option>
                             </select>
                             
-                        </div>
+                        </div> -->
                         <div class="card">
                             <!-- <h5 class="card-header">Table Basic</h5> -->
                             <div class="table-responsive text-nowrap">
-                                <!-- <a href="addowner1.php" class="menu-link">                               -->
+                                <!-- <a href="addowner1.php" class="menu-link"> -->
                                 <table class="table">
                                     <thead>
                                         <tr>

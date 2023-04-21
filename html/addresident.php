@@ -3,9 +3,10 @@
 
 <?php
 
-$units = "SELECT * FROM addowner_details";
+$units = "SELECT * FROM addowner_details WHERE current_status=1";
 $units_qry = mysqli_query($db, $units);
 ?>
+
 
 <body>
     <!-- Layout wrapper -->
@@ -31,25 +32,23 @@ $units_qry = mysqli_query($db, $units);
                         </h4>
                         <form action="addresidentDetails.php" method="POST">
                             <div class="row">
-                                <div class="mb-2 col-md-2">
+                                <div class="mb-2 col-md-2" >
                                     <label for="SHOW" class="form-label">BLOCK</label>
                                     <select name="block" id="SHOW" class="select2 form-select" autocomplete="off"
                                         required>
                                         <option value="">SELECT</option>
                                         <option value="A">A</option>
                                     </select>
-                                    
+
                                 </div>
                                 <div class="mb-3 col-md-2">
 
-                                    <label for="SHOW" class="form-label">UNIT NO.</label>
+                                    <label for="SHOW" class="form-label">UNIT NUMBER</label>
                                     <select name="unitnumber" id="unitnumber" class="select2 form-select"
-                                        autocomplete="off" required>
+                                        autocomplete="off">
                                         <option value="">SELECT</option>
                                         <?php
-                                        // use a while loop to fetch data
-                                        // from the $all_categories variable
-                                        // and individually display as an option
+
                                         while (
                                             $row = mysqli_fetch_array(
                                                 $units_qry,
@@ -60,34 +59,41 @@ $units_qry = mysqli_query($db, $units);
 
                                             ?>
 
-                                            <option value="<?php echo $row['id'];
-                                          
-                                            ?>">
+                                            <option unitId="<?php echo $row['id'] ?>" value="<?php echo $row['units'];
+
+                                               ?>">
                                                 <?php echo $row["units"];
-                                               
+
                                                 ?>
                                             </option>
                                             <?php
                                         endwhile;
-                                      
+
                                         ?>
-                                        
+
                                     </select>
-                                   
+
+                                </div>
+                                <div class="mb-1 col-md-2" >
+
+                                    <label for="SHOW" class="form-label">ID</label>
+                                    <input class="form-control" id="id" name="id" autocomplete="off" required
+                                        readonly />
+
                                 </div>
                                 <div class="mb-3 col-md-2">
 
                                     <label for="SHOW" class="form-label">OWNER NAME</label>
-                                    <input class="form-control" type="text" id="ownername" name="ownername"
+                                    <input  class="form-control" type="text" id="ownername" name="ownername"
                                         autocomplete="off" placeholder="NUll" readonly />
-                                    
+
                                 </div>
-                                <div class="mb-3 col-md-2">
+                                <div class="mb-3 col-md-2" >
 
                                     <label for="SHOW" class="form-label">TYPE</label>
                                     <input class="form-control" type="text" id="type" name="type" autocomplete="off"
                                         placeholder="NUll" readonly />
-                                   
+
                                 </div>
                                 <div class="mb-3 col-md-2">
 
@@ -99,7 +105,7 @@ $units_qry = mysqli_query($db, $units);
                                         <option value="1">SELF</option>
                                         <option value="2">TENANT</option> -->
                                     <!-- </select> -->
-                                   
+
                                 </div>
 
                                 <!-- Basic Layout -->
@@ -211,7 +217,7 @@ $units_qry = mysqli_query($db, $units);
                                                                     <div class="mb-3 col-md-6">
                                                                         <label for="numberofchildrens"
                                                                             class="form-label">NUMBER OF
-                                                                            CHILDREN</label>
+                                                                            CHILDRENS</label>
                                                                         <input class="form-control" type="text"
                                                                             id="numberofchildrens"
                                                                             name="numberofchildrens" placeholder=""
@@ -253,7 +259,7 @@ $units_qry = mysqli_query($db, $units);
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         $('#unitnumber').on('change', function () {
-            var unitnumber_id = this.value;
+            var unitnumber_id = $('#unitnumber  :selected').attr('unitId');
 
             $.ajax({
                 url: 'res.php',
@@ -264,6 +270,7 @@ $units_qry = mysqli_query($db, $units);
                 success: function (result) {
 
                     const resultArray = JSON.parse(result);
+                    const id = resultArray[0].id;
                     const firstName = resultArray[0].first_name;
                     const lastname = resultArray[0].last_name;
                     const use = resultArray[0].use;
@@ -271,12 +278,13 @@ $units_qry = mysqli_query($db, $units);
                     const lastName = resultArray[0].last_name;
                     const mail = resultArray[0].email;
                     const birth = resultArray[0].date_of_birth;
-                    const country = resultArray[0].nationality;
+                    const country = resultArray[0].nationality; 
                     const purchase = resultArray[0].date_of_purchase;
                     const phone = resultArray[0].contact;
 
                     if (use == 'SELF') {
                         // alert('self');
+                        $('#id').val(id);
                         $('#ownername').val(firstName);
                         $('#use').val(use);
                         $('#type').val(type);
@@ -290,6 +298,7 @@ $units_qry = mysqli_query($db, $units);
 
                     }
                     else {
+                        $('#id').val(id);
                         $('#ownername').val(firstName);
                         $('#use').val(use);
                         $('#type').val(type);
@@ -301,11 +310,7 @@ $units_qry = mysqli_query($db, $units);
                         $('#dateofresidency').val('');
                         $('#contact').val('');
 
-
                     }
-
-
-
                 }
             })
         });

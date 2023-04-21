@@ -2,6 +2,7 @@
 include('config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     // collect value of input field
+    $id = $_REQUEST['id'];
     $blocks=$_REQUEST['block'];
    $unitnumber=$_REQUEST['unitnumber'];
    $ownername=$_REQUEST['ownername'];
@@ -17,6 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $yearofagreement = $_REQUEST['yearofagreement'];
     $numberofelders = $_REQUEST['numberofelders'];
     $numberofchildrens = $_REQUEST['numberofchildrens'];
+
+    $query = "UPDATE resident_details SET current_status = 0 WHERE id = '$id'";
+   if (mysqli_query($db, $query)) {
+
+   } else {
+      echo "First Query Error";
+   }
    
     $query1 = "INSERT INTO resident_details(blocks,unit,owner_name,type,purpose,first_name,last_name,email,contact,date_of_birth,nationality,
     date_of_residency,year_of_agreement,total_elders,total_childrens)

@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $floors = $_REQUEST['floors'];
     $unitvalue = $_REQUEST['unitvalue'];
     $parking = $_REQUEST['parking'];
+    
     $query1 = "INSERT INTO apartments(name,address,landmark,block,floor,total_unit,parking_type)
                 VALUES('$apartmentname','$address','$landmark','$blocks','$floors','$unitvalue','$parking')";
     if (mysqli_query($db, $query1)) {

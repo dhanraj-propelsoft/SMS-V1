@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
 <?php include 'config.php'; ?>
 
-<?php $apartmentDatas = mysqli_query($db, "SELECT * FROM addowner_details");
+<?php $apartmentDatas = mysqli_query($db, "SELECT * FROM addowner_details WHERE current_status=1");
 ?>
 <body>
     <!-- Layout wrapper -->
@@ -22,7 +22,7 @@
 
                         <h4 class="fw-bold py-3 mb-0"><span class="text-muted fw-light"> </span><b>OWNER LIST</b>
                         </h4>
-                        <div class="mb-4 col-md-2">
+                        <!-- <div class="mb-4 col-md-2">
                             <label for="SHOW" class="form-label">SHOW</label>
                             <select id="SHOW" class="select2 form-select" name="unitvalue" >
                                 <option value="">SELECT</option>
@@ -33,7 +33,7 @@
                                 <option value="">5</option>
                             </select>
                             
-                        </div>
+                        </div> -->
 
                         <div class="card">
                             <!-- <h5 class="card-header">Table Basic</h5> -->
@@ -42,9 +42,8 @@
 
                                 <table class="table">
                                     <thead>
-
                                         <tr>
-                                            <th>S.NO </th>
+                                            <th>ID </th>
                                             <th>BLOCK NAME</th>
                                             <th>UNIT</th>
                                             <th>UNIT TYPE</th>
@@ -62,7 +61,7 @@
                                                 <td>
                                                     <?php echo $row['block']; ?>
                                                 </td>
-                                                <td>                                   
+                                                <td>                              
                                                                                                                     
                                                     <?php echo $row['units'];?>
                                                     
@@ -81,8 +80,7 @@
                                                 </td>
                                             </tr>
                                             <?php
-                                        } ?>
-                                  
+                                        } ?>                                  
                                 </table>
                             </div>
                         </div>

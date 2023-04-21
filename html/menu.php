@@ -60,7 +60,7 @@ function active($currect_page)
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
 
-                    <li class="menu-item <?php echo ($currentPage == "dashboard") ? "active" : ""; ?>">
+                    <li class="menu-item <?php echo ($currentPage == "Dashboard") ? "active" : ""; ?>">
                         <a href="Dashboard.php" class="menu-link ">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Account Settings">DASHBOARD</div>

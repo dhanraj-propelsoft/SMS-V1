@@ -1,7 +1,9 @@
 <?php include('header.php'); ?>
 <?php include 'config.php'; ?>
-<?php $apartmentDatas = mysqli_query($db, "SELECT * FROM resident_details WHERE purpose='TENANT'");
+<?php 
+  $apartmentDatas = mysqli_query($db, "SELECT * FROM resident_details WHERE purpose='TENANT' AND current_status=1" );
 ?>
+
 
 <body>
     <!-- Layout wrapper -->
@@ -20,7 +22,7 @@
                     <div class="container-xxl flex-grow-1">
                         <h4 class="fw-bold py-3 mb-0"><span class="text-muted fw-light"> </span><b>TENANT LIST</b>
                         </h4>
-                        <div class="mb-4 col-md-2">
+                        <!-- <div class="mb-4 col-md-2">
                             <label for="SHOW" class="form-label">SHOW</label>
                             <select id="SHOW" class="select2 form-select">
                                 <option value="">SELECT</option>
@@ -31,7 +33,7 @@
                                 <option value="">5</option>
                             </select>
                             
-                        </div>
+                        </div> -->
 
                         <div class="card">
                             <!-- <h5 class="card-header">Table Basic</h5> -->
@@ -46,6 +48,7 @@
                                             <th>BLOCK NAME</th>
                                             <th>UNIT</th>
                                             <th>UNIT TYPE</th>
+                                            <th>OWNER NAME</th>
                                             <th>TENANT NAME</th>
                                             <th>TENANT MOBILE NUMBER</th>
 
@@ -60,13 +63,16 @@
                                                 <td>
                                                     <?php echo $row['blocks']; ?>
                                                 </td>
-                                                <td>                                   
-                                                                                                                    
-                                                    <?php echo "A".$row['unit'];?>
+                                                <td>                              
+                                                             
+                                                    <?php echo $row['unit'];?>
                                                     
                                                 </td>
                                                 <td>
                                                     <?php echo $row['type']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['owner_name']; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $row['first_name']; ?>

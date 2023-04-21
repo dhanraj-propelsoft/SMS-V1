@@ -18,21 +18,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES('$unit','$firstName','$lastname','$email','$contactno','$birth','$national','$purchase','$uses','$blocks','$types')";
 
                 if(mysqli_query($db, $query1)){                               
-                   
+                    header("Location: addowner.php"); 
+                    exit();
                 }else{
                    echo"last Query Error";
                 }       
-        echo $unit."<br>";
-        echo $firstName."<br>";
-        echo $lastname."<br>";  
-        echo $email."<br>";
-        echo $contactno."<br>";
-        echo $birth."<br>";
-        echo $national."<br>";
-        echo $purchase."<br>";
-        echo $uses."<br>";
-        echo $blocks."<br>";  
-        echo $types."<br>";       
+        // echo $unit."<br>";
+        // echo $firstName."<br>";
+        // echo $lastname."<br>";  
+        // echo $email."<br>";
+        // echo $contactno."<br>";
+        // echo $birth."<br>";
+        // echo $national."<br>";
+        // echo $purchase."<br>";
+        // echo $uses."<br>";
+        // echo $blocks."<br>";  
+        // echo $types."<br>";       
         // echo ($use == "SELF" ? "SELF" : "TENANT") . "<br>";
         
     }

@@ -2,7 +2,7 @@
 <?php include 'config.php'; ?>
 <?php
 
-$units = "SELECT * FROM resident_details";
+$units = "SELECT * FROM resident_details WHERE current_status=1";
 $units_qry = mysqli_query($db, $units);
 
 ?>
@@ -30,7 +30,7 @@ $units_qry = mysqli_query($db, $units);
 
                         <form action="vacateDetails.php" method="POST" name="vacate">
                             <div class="row">
-                                <div class=" mb-4 col-md-2">
+                                <div class=" mb-4 col-md-2" style="display:none">
                                     <label for="SHOW" class="form-label">BLOCK</label>
                                     <select name="block" id="SHOW" class="select2 form-select" autocomplete="off"
                                         required readonly>
@@ -38,7 +38,7 @@ $units_qry = mysqli_query($db, $units);
                                         <option value="A">A</option>
 
                                     </select>
-                                   
+
                                 </div>
                                 <div class="mb-1 col-md-2">
 
@@ -47,9 +47,7 @@ $units_qry = mysqli_query($db, $units);
                                         autocomplete="off" required readonly>
                                         <option value="">SELECT</option>
                                         <?php
-                                        // use a while loop to fetch data
-                                        // from the $all_categories variable
-                                        // and individually display as an option
+
                                         while (
                                             $row = mysqli_fetch_array(
                                                 $units_qry,
@@ -61,19 +59,19 @@ $units_qry = mysqli_query($db, $units);
                                             ?>
 
                                             <option value="<?php echo $row['id'];
-                                            // The value we usually set is the primary key
+
                                             ?>">
-                                                <?php echo "A" . $row["unit"];
-                                                // To show the category name to the user
+                                                <?php echo $row["unit"];
+
                                                 ?>
                                             </option>
                                             <?php
                                         endwhile;
-                                        // While loop must be terminated
+
                                         ?>
 
                                     </select>
-                                    
+
                                 </div>
 
                                 <div class="mb-1 col-md-2">
@@ -84,7 +82,7 @@ $units_qry = mysqli_query($db, $units);
 
                                 </div>
 
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-1 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
@@ -244,11 +242,7 @@ $units_qry = mysqli_query($db, $units);
     </div>
 
     <?php include('footer.php');
-    // if( isset($_POST['vacate']) ) {
-    //     $id = $_GET['lastname'];
-    //     echo '<script type="text/javascript">alert("ID: '.$id.'");</script>';
-    // }
-    
+
     ?>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

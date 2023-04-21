@@ -79,8 +79,8 @@
 																<label for="unitvalue" class="form-label">NO.OF
 																	UNITS</label>
 																<input class="form-control unitvalue" type="number"
-																	id="unitvalue1" name="unitvalue"
-																	placeholder="01-05" required/>
+																	id="unitvalue1" name="unitvalue" placeholder="01-05"
+																	required />
 															</div>
 
 															<div class="mb-3 col-md-3">
