@@ -252,7 +252,7 @@ $units_qry = mysqli_query($db, $units);
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>
             $('#unitnumber').on('change', function () {
-                var unitnumber_id = $('#unitnumber  :selected').attr('unitId');
+                var unitnumber_id = $('#unitnumber  :selected').val();
                 $.ajax({
                     url: 'res.php',
                     type: "POST",

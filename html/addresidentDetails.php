@@ -19,19 +19,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numberofelders = $_REQUEST['numberofelders'];
     $numberofchildrens = $_REQUEST['numberofchildrens'];
 
-    $query = "UPDATE resident_details SET current_status = 0 WHERE id = '$id'";
-   if (mysqli_query($db, $query)) {
+    $query1 = "UPDATE resident_details SET current_status = 0 WHERE unit = '$unitnumber'";
+   if (mysqli_query($db, $query1)) {
 
    } else {
       echo "First Query Error";
    }
    
-    $query1 = "INSERT INTO resident_details(blocks,unit,owner_name,type,purpose,first_name,last_name,email,contact,date_of_birth,nationality,
+    $query2 = "INSERT INTO resident_details(blocks,unit,owner_name,type,purpose,first_name,last_name,email,contact,date_of_birth,nationality,
     date_of_residency,year_of_agreement,total_elders,total_childrens)
     VALUES('$blocks','$unitnumber','$ownername','$types','$purpose','$firstName','$lastname','$email','$contact','$dateofbirth',
     '$nationality','$dateofresidency','$yearofagreement','$numberofelders','$numberofchildrens')";
 
-                if(mysqli_query($db, $query1)){                               
+                if(mysqli_query($db, $query2)){                               
                    
                 }else{
                    echo"last Query Error";

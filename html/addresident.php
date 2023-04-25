@@ -7,7 +7,6 @@ $units = "SELECT * FROM addowner_details WHERE current_status=1";
 $units_qry = mysqli_query($db, $units);
 ?>
 
-
 <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -16,7 +15,6 @@ $units_qry = mysqli_query($db, $units);
             <!-- Menu -->
 
             <?php include('menu.php'); ?>
-
 
             <!-- Layout container -->
             <div class="layout-page">
@@ -32,7 +30,7 @@ $units_qry = mysqli_query($db, $units);
                         </h4>
                         <form action="addresidentDetails.php" method="POST">
                             <div class="row">
-                                <div class="mb-2 col-md-2" >
+                                <div class="mb-2 col-md-2">
                                     <label for="SHOW" class="form-label">BLOCK</label>
                                     <select name="block" id="SHOW" class="select2 form-select" autocomplete="off"
                                         required>
@@ -71,10 +69,10 @@ $units_qry = mysqli_query($db, $units);
 
                                         ?>
 
-                                    </select>
+                                    </select>   
 
                                 </div>
-                                <div class="mb-1 col-md-2" >
+                                <div class="mb-1 col-md-2">
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
@@ -84,11 +82,11 @@ $units_qry = mysqli_query($db, $units);
                                 <div class="mb-3 col-md-2">
 
                                     <label for="SHOW" class="form-label">OWNER NAME</label>
-                                    <input  class="form-control" type="text" id="ownername" name="ownername"
+                                    <input class="form-control" type="text" id="ownername" name="ownername"
                                         autocomplete="off" placeholder="NUll" readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2" >
+                                <div class="mb-3 col-md-2">
 
                                     <label for="SHOW" class="form-label">TYPE</label>
                                     <input class="form-control" type="text" id="type" name="type" autocomplete="off"
@@ -259,16 +257,19 @@ $units_qry = mysqli_query($db, $units);
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         $('#unitnumber').on('change', function () {
-            var unitnumber_id = $('#unitnumber  :selected').attr('unitId');
+            var unitnumber_id = $('#unitnumber  :selected').val();
+            // var unitnumber = $('#unitnumber  :selected').text();
+            
 
             $.ajax({
                 url: 'res.php',
                 type: "POST",
                 data: {
                     unit_data: unitnumber_id,
+                    // unitnumber:unitnumber
                 },
                 success: function (result) {
-
+// console.log(result);
                     const resultArray = JSON.parse(result);
                     const id = resultArray[0].id;
                     const firstName = resultArray[0].first_name;
@@ -278,7 +279,7 @@ $units_qry = mysqli_query($db, $units);
                     const lastName = resultArray[0].last_name;
                     const mail = resultArray[0].email;
                     const birth = resultArray[0].date_of_birth;
-                    const country = resultArray[0].nationality; 
+                    const country = resultArray[0].nationality;
                     const purchase = resultArray[0].date_of_purchase;
                     const phone = resultArray[0].contact;
 
@@ -302,19 +303,26 @@ $units_qry = mysqli_query($db, $units);
                         $('#ownername').val(firstName);
                         $('#use').val(use);
                         $('#type').val(type);
-                        $('#firstName').val('');
-                        $('#lastname').val('');
-                        $('#email').val('');
-                        $('#dateofbirth').val('');
-                        $('#nationality').val('');
-                        $('#dateofresidency').val('');
-                        $('#contact').val('');
+                        $('#firstName').val(resultArray[0].fname);
+                        $('#lastname').val(resultArray[0].lname);
+                        $('#email').val(resultArray[0].fmail);
+                        $('#dateofbirth').val(resultArray[0].birth);
+                        $('#nationality').val(resultArray[0].contry);
+                        $('#dateofresidency').val(resultArray[0].resident);
+                        $('#contact').val(resultArray[0].con);
+                        $('#yearofagreement').val(resultArray[0].agreement);
+                        $('#numberofelders').val(resultArray[0].elders);
+                        $('#numberofchildrens').val(resultArray[0].childrens);
+                        
 
                     }
                 }
             })
         });
     </script>
+
+
+    
     <!-- <script>
         $('#unitnumber').on('change', function () {
             var unitnumber_id = this.value;

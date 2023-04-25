@@ -40,7 +40,7 @@ $units_qry = mysqli_query($db, $units);
                                     </select>
 
                                 </div>
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-4 col-md-2">
 
                                     <label for="SHOW" class="form-label">UNIT NO.</label>
                                     <select name="unitnumber" id="unitnumber" class="select2 form-select"
@@ -74,7 +74,7 @@ $units_qry = mysqli_query($db, $units);
 
                                 </div>
 
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-4 col-md-2">
 
                                     <label for="SHOW" class="form-label">OWNER NAME</label>
                                     <input class="form-control" id="ownername" name="ownername" autocomplete="off"
@@ -82,7 +82,7 @@ $units_qry = mysqli_query($db, $units);
 
                                 </div>
 
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-4 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
