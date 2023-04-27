@@ -43,7 +43,7 @@ $units_qry = mysqli_query($db, $units);
                                     </select>
 
                                 </div>
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-4 col-md-2">
 
                                     <label for="SHOW" class="form-label">UNIT NUMBER</label>
                                     <select name="unitnumber" id="unitnumber" class="select2 form-select"
@@ -76,14 +76,14 @@ $units_qry = mysqli_query($db, $units);
                                     </select>
 
                                 </div>
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-4 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
                                         readonly />
 
                                 </div>
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-4 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">TYPE</label>
                                     <input class="form-control" id="type" name="type" autocomplete="off" required
@@ -237,8 +237,8 @@ $units_qry = mysqli_query($db, $units);
                                         </button>
                                         <button type="reset" class="btn btn-danger deactivate-account">Reset
                                         </button>
-                                        <button type="reset" class="btn btn-primary deactivate-account">Cancel
-                                        </button>
+                                        <!-- <button type="reset" class="btn btn-primary deactivate-account">Cancel
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
@@ -247,6 +247,9 @@ $units_qry = mysqli_query($db, $units);
                 </div>
             </div>
         </div>
+        <script>
+            $(".master").addClass("active open");
+        </script>
         <!-- Footer -->
         <?php include('footer.php'); ?>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

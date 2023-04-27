@@ -220,8 +220,8 @@ $units_qry = mysqli_query($db, $units);
                                                                         onclick=" showMessage()">Vacate
                                                                     </button>
 
-                                                                    <button type="reset"
-                                                                        class="btn btn-primary deactivate-account">Cancel
+                                                                    <button type="cancel"
+                                                                        class="btn btn-danger deactivate-account">Cancel
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -240,6 +240,9 @@ $units_qry = mysqli_query($db, $units);
             </div>
         </div>
     </div>
+    <script>
+            $(".master").addClass("active open");
+        </script>
 
     <?php include('footer.php');
 

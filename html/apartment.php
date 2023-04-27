@@ -127,9 +127,9 @@
 															<button type="reset"
 																class="btn btn-danger deactivate-account  ">Reset
 															</button>
-															<button type="reset"
+															<!-- <button type="reset"
 																class="btn btn-primary deactivate-account  ">Cancel
-															</button>
+															</button> -->
 														</div>
 													</form>
 												</div>
@@ -144,6 +144,9 @@
 		</div>
 	</div>
 </body>
+<script>
+            $(".setting").addClass("active open");
+        </script>
 <!-- / Content -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

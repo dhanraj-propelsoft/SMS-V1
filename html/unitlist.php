@@ -88,5 +88,9 @@ $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details");
             </div>
         </div>
     </div>
+    <script>
+            $(".report").addClass("active open");
+        </script>
     <!-- Footer -->
     <?php include('footer.php'); ?>
+    

@@ -167,9 +167,9 @@
                                                                 <button type="reset"
                                                                     class="btn btn-danger deactivate-account">Reset
                                                                 </button>
-                                                                <button type="reset"
+                                                                <!-- <button type="reset"
                                                                     class="btn btn-primary deactivate-account">Cancel
-                                                                </button>
+                                                                </button> -->
                                                             </div>
                                                         </div>
                                                     </form>
@@ -189,22 +189,11 @@
 
    
 </body>
+<script>
+            $(".master").addClass("active open");
+        </script>
 <!-- / Content -->
 <!-- Footer -->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-
-<script>
-  $(function() {
-    $("#dateofbirth").datepicker({
-      dateFormat: "dd/mm/yy",
-      changeMonth: true,
-      changeYear: true,
-      yearRange: "-100:+0"
-    });
-  });
-</script>
 
 
 <?php include('footer.php'); ?>

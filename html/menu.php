@@ -54,19 +54,18 @@ function active($currect_page)
 
 <body>
     <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
+    <!-- <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container"> -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
-
-                    <li class="menu-item <?php echo ($currentPage == "Dashboard") ? "active" : ""; ?>">
+                    <li class="menu-item dashboard ">
                         <a href="Dashboard.php" class="menu-link ">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Account Settings">DASHBOARD</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item report">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                             <div data-i18n="Misc">REPORTS</div>
@@ -89,7 +88,8 @@ function active($currect_page)
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item active">
+
+                    <li class="menu-item master">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                             <div data-i18n="Authentications">MASTERS</div>
@@ -120,7 +120,7 @@ function active($currect_page)
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item setting">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">SETTINGS</div>
@@ -131,9 +131,6 @@ function active($currect_page)
                                     <div data-i18n="Account">Apartment</div>
                                 </a>
                             </li>
-
-
-
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -148,7 +145,7 @@ function active($currect_page)
                         </a>
                     </li>
                 </ul>
-            </aside>
+            </aside>        
 </body>
 
 

@@ -88,7 +88,11 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(".report").addClass("active open");
+        </script>
 
         <!-- Footer -->
         <?php include('footer.php'); ?>
+        
        

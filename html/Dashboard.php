@@ -13,6 +13,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <?php include('nav.php'); ?>
+               
 
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -64,4 +65,8 @@
             </div>
         </div>
     </div>    
+    <script>
+            $(".dashboard").addClass("active open");
+        </script>
     <?php include('footer.php'); ?>
+   

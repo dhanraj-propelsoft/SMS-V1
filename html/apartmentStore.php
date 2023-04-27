@@ -24,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query2 = "INSERT INTO apartment_details(apartment_id,blocks,unit,type,floor,description)
                     VALUES('$last_id','$block','$unit','$type','$floor','$description')";
             if (mysqli_query($db, $query2)) {
-                echo "SUccess All";
+                header("Location: apartment.php"); 
+                exit();
+                
             } else {
                 echo "last Query Error";
             }
@@ -46,19 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rows[] = $row;
     }
     // display the apartment details and table of rows
-    echo $apartmentname . "<br>";
-    echo $address . "<br>";
-    echo $landmark . "<br>";
-    echo $blocks . "<br>";
-    echo $floors . "<br>";
-    echo $unitvalue . "<br>";
-    echo $parking . "<br>";
-    echo '<table>';
-    echo '<tr><th>sno</th><th>unit</th><th>type</th><th>floor</th><th>description</th><th>block</th></tr>';
-    // loop through the $rows array and print each row in a table row
-    foreach ($rows as $row) {
-        echo "<tr><td>{$row['sno']}</td>  <td>{$row['unit']}</td>  <td>{$row['type']}</td>  <td>{$row['floor']}</td>  <td>{$row['description']}</td> <td>{$row['block']}</td>  </tr>";
-    }
-    echo "</table>";
+    // echo $apartmentname . "<br>";
+    // echo $address . "<br>";
+    // echo $landmark . "<br>";
+    // echo $blocks . "<br>";
+    // echo $floors . "<br>";
+    // echo $unitvalue . "<br>";
+    // echo $parking . "<br>";
+    // echo '<table>';
+    // echo '<tr><th>sno</th><th>unit</th><th>type</th><th>floor</th><th>description</th><th>block</th></tr>';
+    // // loop through the $rows array and print each row in a table row
+    // foreach ($rows as $row) {
+    //     echo "<tr><td>{$row['sno']}</td>  <td>{$row['unit']}</td>  <td>{$row['type']}</td>  <td>{$row['floor']}</td>  <td>{$row['description']}</td> <td>{$row['block']}</td>  </tr>";
+    // }
+    // echo "</table>";
 }
 ?>

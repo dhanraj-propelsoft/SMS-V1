@@ -231,9 +231,9 @@ $units_qry = mysqli_query($db, $units);
                                                                     <button type="reset"
                                                                         class="btn btn-danger deactivate-account">Reset
                                                                     </button>
-                                                                    <button type="reset"
+                                                                    <!-- <button type="reset"
                                                                         class="btn btn-primary deactivate-account">Cancel
-                                                                    </button>
+                                                                    </button> -->
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -252,6 +252,9 @@ $units_qry = mysqli_query($db, $units);
             </div>
         </div>
     </div>
+    <script>
+            $(".master").addClass("active open");
+        </script>
     <!-- Footer -->
     <?php include('footer.php'); ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

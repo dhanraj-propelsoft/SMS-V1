@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $query1 = "UPDATE resident_details SET current_status = 0 WHERE unit = '$unitnumber'";
    if (mysqli_query($db, $query1)) {
-
+      
    } else {
       echo "First Query Error";
    }
@@ -31,26 +31,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES('$blocks','$unitnumber','$ownername','$types','$purpose','$firstName','$lastname','$email','$contact','$dateofbirth',
     '$nationality','$dateofresidency','$yearofagreement','$numberofelders','$numberofchildrens')";
 
-                if(mysqli_query($db, $query2)){                               
+                if(mysqli_query($db, $query2)){  
+                  header("Location: addresident.php"); 
+                    exit();
+                             
                    
                 }else{
                    echo"last Query Error";
                 }        
     
-        echo $blocks."<br>";
-        echo $unitnumber."<br>";
-        echo $ownername."<br>";
-        echo $purpose."<br>";        
-        echo $lastname."<br>";
-        echo  $email."<br>";
-        echo $contact."<br>";
-        echo $dateofbirth."<br>";
-        echo $nationality."<br>";
-        echo $dateofresidency."<br>";
-        echo $yearofagreement."<br>";
-        echo $numberofelders."<br>";
-        echo $numberofchildrens."<br>";
-        echo $types."<br>";
+      //   echo $blocks."<br>";
+      //   echo $unitnumber."<br>";
+      //   echo $ownername."<br>";
+      //   echo $purpose."<br>";        
+      //   echo $lastname."<br>";
+      //   echo  $email."<br>";
+      //   echo $contact."<br>";
+      //   echo $dateofbirth."<br>";
+      //   echo $nationality."<br>";
+      //   echo $dateofresidency."<br>";
+      //   echo $yearofagreement."<br>";
+      //   echo $numberofelders."<br>";
+      //   echo $numberofchildrens."<br>";
+      //   echo $types."<br>";
        
     }
 

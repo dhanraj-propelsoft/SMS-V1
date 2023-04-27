@@ -137,6 +137,9 @@
         </div>
     </div>
 </body>
+<script>
+            $(".master").addClass("active open");
+        </script>
 
 
 <!-- Footer -->

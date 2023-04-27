@@ -29,22 +29,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     '$nationality','$dateofpurchase','$use',' $block','$type')";
 
    if (mysqli_query($db, $query2)) {
+      header("Location: transferowner.php"); 
+      exit();
 
    } else {
       echo "last Query Error";
    }
 
-   echo $block . "<br>";
-   echo $unitnumber . "<br>";
-   echo $id . "<br>";
-   echo $firstname . "<br>";
-   echo $lastname . "<br>";
-   echo $email . "<br>";
-   echo $contact . "<br>";
-   echo $dateofbirth . "<br>";
-   echo $nationality . "<br>";
-   echo $dateofpurchase . "<br>";
-   echo $use . "<br>";
+   // echo $block . "<br>";
+   // echo $unitnumber . "<br>";
+   // echo $id . "<br>";
+   // echo $firstname . "<br>";
+   // echo $lastname . "<br>";
+   // echo $email . "<br>";
+   // echo $contact . "<br>";
+   // echo $dateofbirth . "<br>";
+   // echo $nationality . "<br>";
+   // echo $dateofpurchase . "<br>";
+   // echo $use . "<br>";
 
 
 }

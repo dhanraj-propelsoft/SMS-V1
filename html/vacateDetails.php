@@ -20,23 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES('$block','$unitnumber','$ownername','$firstname','$lastname','$email','$contact','$dateofbirth',
     '$nationality','$dateofresidency','$yearofagreement','$numberofelders','$numberofchildrens')";
     if (mysqli_query($db, $query1)) {
-
+        
     } else {
         echo "last Query Error";
     }
 
-    echo $block . "<br>";
-    echo $unitnumber . "<br>";
-    echo $ownername . "<br>";
-    echo $lastname . "<br>";
-    echo $email . "<br>";
-    echo $contact . "<br>";
-    echo $dateofbirth . "<br>";
-    echo $nationality . "<br>";
-    echo $dateofresidency . "<br>";
-    echo $yearofagreement . "<br>";
-    echo $numberofelders . "<br>";
-    echo $numberofchildrens . "<br>";
+    // echo $block . "<br>";
+    // echo $unitnumber . "<br>";
+    // echo $ownername . "<br>";
+    // echo $lastname . "<br>";
+    // echo $email . "<br>";
+    // echo $contact . "<br>";
+    // echo $dateofbirth . "<br>";
+    // echo $nationality . "<br>";
+    // echo $dateofresidency . "<br>";
+    // echo $yearofagreement . "<br>";
+    // echo $numberofelders . "<br>";
+    // echo $numberofchildrens . "<br>";
 
     $idValue = $_POST['id'];
 
@@ -50,6 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($db, $sql)) {
         // Display a success message using JavaScript
         echo '<script>alert("vacate Resident");</script>';
+        header("Location: vacateresident.php"); 
+        exit();
+
     } else {
         // Display an error message using JavaScript
         // echo '<script>alert("Error deleting row: ' . mysqli_error($db) . '");</script>';
