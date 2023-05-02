@@ -3,6 +3,7 @@
 
 <?php $apartmentDatas = mysqli_query($db, "SELECT * FROM apartment_details"); ?>
 
+
   
 <body>
     <!-- Layout wrapper -->
@@ -44,9 +45,9 @@
                                     } ?>
                                 </div>
 
-                                <div class="mb-1 col-md-2">
+                                <div class="mb-1 col-md-2" style="display:none">
                                     <label for="SHOW" class="form-label">UNIT TYPE - </label>
-                                    <input type="hidden" name="type" value="<?php echo $_GET['type']; ?>">
+                                    <input name="type" value="<?php echo $_GET['type']; ?>" type="hidden" >
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
                                         ?>
                                         <?php
@@ -56,8 +57,8 @@
                                     } ?>
                                 </div>
 
-                                <div class="mb-1 col-md-2">
-                                    <input type="hidden" name="block" value="<?php echo $row['blocks']; ?>">
+                                <div class="mb-1 col-md-2" style="display:none">
+                                    <input name="block" value="<?php echo $row['blocks']; ?>" type="hidden">
                                     <label for="SHOW" class="form-label">BLOCK -</label>
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
                                         ?>
@@ -125,7 +126,7 @@
                                                                 <label for="dateofbirth" class="form-label">DATE
                                                                     OF
                                                                     BIRTH</label>
-                                                                <input class="form-control" type="text" id="dateofbirth"
+                                                                <input class="form-control" type="date" id="dateofbirth"
                                                                     name="dateofbirth" placeholder="dd/mm/yyyy"
                                                                     autocomplete="off" required />
                                                             </div>
@@ -142,7 +143,7 @@
                                                                 <label for="dateofpurchase" class="form-label">DATE
                                                                     OF
                                                                     PURCHASE</label>
-                                                                <input class="form-control" type="text"
+                                                                <input class="form-control" type="date"
                                                                     id="dateofpurchase" name="dateofpurchase"
                                                                     placeholder="dd/mm/yyyy" autocomplete="off"
                                                                     required />
@@ -172,6 +173,7 @@
                                                                 </button> -->
                                                             </div>
                                                         </div>
+                                                        
                                                     </form>
 
                                                 </div>

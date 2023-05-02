@@ -32,8 +32,7 @@ $units_qry = mysqli_query($db, $units);
                             <div class="row">
                                 <div class="mb-2 col-md-2" >
                                     <label for="SHOW" class="form-label">BLOCK</label>
-                                    <select name="block" id="SHOW" class="select2 form-select" autocomplete="off"
-                                        required>
+                                    <select name="block" id="SHOW" class="select2 form-select" autocomplete="off" required>
                                         <option value="">SELECT</option>
                                         <option value="A">A</option>
                                     </select>
@@ -41,7 +40,7 @@ $units_qry = mysqli_query($db, $units);
                                 </div>
                                 <div class="mb-3 col-md-2">
 
-                                    <label for="SHOW" class="form-label">UNIT NUMBER</label>
+                                    <label for="SHOW" class="form-label"  required>UNIT NUMBER</label>
                                     <select name="unitnumber" id="unitnumber" class="select2 form-select"
                                         autocomplete="off">
                                         <option value="">SELECT</option>
@@ -72,28 +71,28 @@ $units_qry = mysqli_query($db, $units);
                                     </select>   
 
                                 </div>
-                                <div class="mb-1 col-md-2" >
+                                <div class="mb-1 col-md-2" style="display:none">
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
                                         readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2">
+                                <div class="mb-3 col-md-2"  style="display:none">
 
                                     <label for="SHOW" class="form-label">OWNER NAME</label>
                                     <input class="form-control" type="text" id="ownername" name="ownername"
                                         autocomplete="off" placeholder="NUll" readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2"  >
+                                <div class="mb-3 col-md-2"  style="display:none"  >
 
                                     <label for="SHOW" class="form-label">TYPE</label>
                                     <input class="form-control" type="text" id="type" name="type" autocomplete="off"
                                         placeholder="NUll" readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2"  >
+                                <div class="mb-3 col-md-2"  style="display:none" >
 
                                     <label for="SHOW" class="form-label" >PURPOSE</label>
                                     <input name="use" id="use" class="form-control" autocomplete="off"
