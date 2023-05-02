@@ -30,7 +30,7 @@ $units_qry = mysqli_query($db, $units);
                         </h4>
                         <form action="addresidentDetails.php" method="POST">
                             <div class="row">
-                                <div class="mb-2 col-md-2" style="display:none">
+                                <div class="mb-2 col-md-2" >
                                     <label for="SHOW" class="form-label">BLOCK</label>
                                     <select name="block" id="SHOW" class="select2 form-select" autocomplete="off"
                                         required>
@@ -72,7 +72,7 @@ $units_qry = mysqli_query($db, $units);
                                     </select>   
 
                                 </div>
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-1 col-md-2" >
 
                                     <label for="SHOW" class="form-label">ID</label>
                                     <input class="form-control" id="id" name="id" autocomplete="off" required
@@ -86,14 +86,14 @@ $units_qry = mysqli_query($db, $units);
                                         autocomplete="off" placeholder="NUll" readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2"  style="display:none">
+                                <div class="mb-3 col-md-2"  >
 
                                     <label for="SHOW" class="form-label">TYPE</label>
                                     <input class="form-control" type="text" id="type" name="type" autocomplete="off"
                                         placeholder="NUll" readonly />
 
                                 </div>
-                                <div class="mb-3 col-md-2"  style="display:none">
+                                <div class="mb-3 col-md-2"  >
 
                                     <label for="SHOW" class="form-label" >PURPOSE</label>
                                     <input name="use" id="use" class="form-control" autocomplete="off"

@@ -24,8 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query2 = "INSERT INTO apartment_details(apartment_id,blocks,unit,type,floor,description)
                     VALUES('$last_id','$block','$unit','$type','$floor','$description')";
             if (mysqli_query($db, $query2)) {
-                header("Location: apartment.php"); 
+                if($i==  count($_POST['sno'])-1){
+                     header("Location: apartment.php"); 
                 exit();
+
+                }
+               
                 
             } else {
                 echo "last Query Error";

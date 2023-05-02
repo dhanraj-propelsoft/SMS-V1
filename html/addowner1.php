@@ -44,7 +44,7 @@
                                     } ?>
                                 </div>
 
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-1 col-md-2">
                                     <label for="SHOW" class="form-label">UNIT TYPE - </label>
                                     <input type="hidden" name="type" value="<?php echo $_GET['type']; ?>">
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
@@ -56,7 +56,7 @@
                                     } ?>
                                 </div>
 
-                                <div class="mb-1 col-md-2" style="display:none">
+                                <div class="mb-1 col-md-2">
                                     <input type="hidden" name="block" value="<?php echo $row['blocks']; ?>">
                                     <label for="SHOW" class="form-label">BLOCK -</label>
                                     <?php if ($row = mysqli_fetch_array($apartmentDatas)) {
